@@ -1,14 +1,13 @@
-
 /**
- * @file lv_port_indev.h
+ * @file lv_port_tick.h
  *
  */
 
-/*Copy this file as "lv_port_indev.h" and set this value to "1" to enable content*/
+/*Copy this file as "lv_port_tick.h" and set this value to "1" to enable content*/
 #if 1
 
-#ifndef LV_PORT_INDEV_TEMPL_H
-#define LV_PORT_INDEV_TEMPL_H
+#ifndef LV_PORT_TICK_H
+#define LV_PORT_TICK_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,7 +16,11 @@ extern "C" {
 /*********************
  *      INCLUDES
  *********************/
+#if defined(LV_LVGL_H_INCLUDE_SIMPLE)
+#include "lvgl.h"
+#else
 #include "../lvgl/lvgl.h"
+#endif
 
 /*********************
  *      DEFINES
@@ -30,7 +33,8 @@ extern "C" {
 /**********************
  * GLOBAL PROTOTYPES
  **********************/
-void lv_port_indev_init(void);
+/* Initialize low level display driver */
+void lv_port_tick_init(void);
 
 /**********************
  *      MACROS
@@ -40,6 +44,6 @@ void lv_port_indev_init(void);
 } /*extern "C"*/
 #endif
 
-#endif /*LV_PORT_INDEV_TEMPL_H*/
+#endif /*LV_PORT_TICK_H*/
 
 #endif /*Disable/Enable content*/

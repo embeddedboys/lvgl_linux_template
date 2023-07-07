@@ -54,3 +54,7 @@ dkms.conf
 
 .cache/
 build/
+dist-target/
+dist-simulator/
+demo
+simulator
