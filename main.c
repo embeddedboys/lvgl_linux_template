@@ -97,6 +97,14 @@ int main(int argc, char **argv)
     //                                                 "/home/developer/Downloads/LottieLego.json");
     // lv_obj_center(lottie);
 
+    const char * data = "Hello world";
+
+    /*Create a 100x100 QR code*/
+    lv_obj_t * qr = lv_qrcode_create(lv_scr_act(), 50, lv_color_hex3(0xffff), lv_color_hex3(0x0));
+
+    /*Set data*/
+    lv_qrcode_update(qr, data, strlen(data));
+
     for(;;) {
         lv_timer_handler();
         usleep(5000);
