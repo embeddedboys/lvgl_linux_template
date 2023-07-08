@@ -12,6 +12,8 @@ file(GLOB_RECURSE COMMON_SOURCES "lvgl/src/*.c"
     "lvgl/demos/stress/lv_demo_stress.c"
     "lvgl/demos/widgets/*.c"
     "lvgl/demos/benchmark/*.c"
+
+    "lvgl/examples/*.c"
 )
 
 set(CMAKE_BUILD_TYPE "Release")

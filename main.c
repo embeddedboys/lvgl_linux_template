@@ -8,8 +8,8 @@
 #include "port/lv_port_indev.h"
 #include "port/lv_port_tick.h"
 
-#include "lvgl/demos/keypad_encoder/lv_demo_keypad_encoder.h"
-#include "lvgl/demos/stress/lv_demo_stress.h"
+#include "lvgl/demos/lv_demos.h"
+#include "lvgl/examples/lv_examples.h"
 
 /*******************
 *       DEFINE
@@ -88,10 +88,14 @@ int main(int argc, char **argv)
     /* App here */
     printf("Launching App ...\n");
     // lv_demo_benchmark();
-    lv_demo_keypad_encoder();
+    // lv_demo_keypad_encoder();
     // lv_demo_stress();
     // lv_demo_widgets();
-    // lv_example_checkbox_1();
+    lv_example_checkbox_1();
+
+    // lv_obj_t * lottie = lv_rlottie_create_from_file(lv_scr_act(), 100, 100,
+    //                                                 "/home/developer/Downloads/LottieLego.json");
+    // lv_obj_center(lottie);
 
     for(;;) {
         lv_timer_handler();
