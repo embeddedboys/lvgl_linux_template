@@ -14,7 +14,6 @@
 #include <stdbool.h>
 
 #include "../lv_drivers/display/fbdev.h"
-#include "lv_port.h"
 
 /*********************
  *      DEFINES
