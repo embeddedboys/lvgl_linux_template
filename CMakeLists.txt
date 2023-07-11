@@ -8,11 +8,7 @@ include_directories(./)
 file(GLOB_RECURSE COMMON_INCLUDES "lvgl/*.h" "./*.h")
 
 file(GLOB_RECURSE COMMON_SOURCES "lvgl/src/*.c"
-    "lvgl/demos/keypad_encoder/lv_demo_keypad_encoder.c"
-    "lvgl/demos/stress/lv_demo_stress.c"
-    "lvgl/demos/widgets/*.c"
-    "lvgl/demos/benchmark/*.c"
-
+    "lvgl/demos/*.c"
     "lvgl/examples/*.c"
 )
 

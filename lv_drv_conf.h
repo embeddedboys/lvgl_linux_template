@@ -14,6 +14,7 @@
 #define LV_DRV_CONF_H
 
 #include "lv_conf.h"
+#include "port/lv_port_disp.h"
 
 /*********************
  * DELAY INTERFACE
@@ -95,11 +96,11 @@
 #endif
 
 #if USE_SDL || USE_SDL_GPU
-#  define SDL_HOR_RES     128
-#  define SDL_VER_RES     128
+#  define SDL_HOR_RES     MY_DISP_HOR_RES
+#  define SDL_VER_RES     MY_DISP_VER_RES
 
 /* Scale window by this factor (useful when simulating small screens) */
-#  define SDL_ZOOM        3
+#  define SDL_ZOOM        1
 
 /* Used to test true double buffering with only address changing.
  * Use 2 draw buffers, bith with SDL_HOR_RES x SDL_VER_RES size*/

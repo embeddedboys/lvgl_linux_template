@@ -17,7 +17,6 @@
 static void app_init(void);
 static void app_exit(void);
 
-#define MY_DISP_HOR_RES 128
 static lv_group_t *g;
 
 
@@ -84,26 +83,11 @@ int main(int argc, char **argv)
     // ifconfig usb0 192.168.200.100
     // ping 192.168.200.101
     // mount -t nfs -o nolock,vers=3 192.168.200.101:/home/developer/nfs_share /mnt
+    // cd /mnt && ./demo
 
     /* App here */
     printf("Launching App ...\n");
-    // lv_demo_benchmark();
-    // lv_demo_keypad_encoder();
-    // lv_demo_stress();
-    // lv_demo_widgets();
-    lv_example_checkbox_1();
-
-    // lv_obj_t * lottie = lv_rlottie_create_from_file(lv_scr_act(), 100, 100,
-    //                                                 "/home/developer/Downloads/LottieLego.json");
-    // lv_obj_center(lottie);
-
-    const char * data = "Hello world";
-
-    /*Create a 100x100 QR code*/
-    lv_obj_t * qr = lv_qrcode_create(lv_scr_act(), 50, lv_color_hex3(0xffff), lv_color_hex3(0x0));
-
-    /*Set data*/
-    lv_qrcode_update(qr, data, strlen(data));
+    lv_demo_widgets();
 
     for(;;) {
         lv_timer_handler();
