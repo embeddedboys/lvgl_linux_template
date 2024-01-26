@@ -57,18 +57,18 @@ void lv_port_disp_init(void)
      *----------------------------*/
     static lv_disp_draw_buf_t disp_buf;
 
-    static lv_color_t buf_1[MY_DISP_HOR_RES * MY_DISP_HOR_RES];
-    static lv_color_t buf_2[MY_DISP_HOR_RES * MY_DISP_HOR_RES];
+    static lv_color_t buf_1[MY_DISP_HOR_RES * MY_DISP_VER_RES];
+    static lv_color_t buf_2[MY_DISP_HOR_RES * MY_DISP_VER_RES];
 
-    lv_disp_draw_buf_init(&disp_buf, buf_1, buf_2, MY_DISP_HOR_RES * MY_DISP_HOR_RES);
+    lv_disp_draw_buf_init(&disp_buf, buf_1, buf_2, MY_DISP_HOR_RES * MY_DISP_VER_RES);
 
     static lv_disp_drv_t disp_drv;
     lv_disp_drv_init(&disp_drv);
     disp_drv.draw_buf = &disp_buf;
     disp_drv.flush_cb = fbdev_flush;
     disp_drv.hor_res = MY_DISP_HOR_RES;
-    disp_drv.ver_res = MY_DISP_HOR_RES;
-    disp_drv.full_refresh = 1;
+    disp_drv.ver_res = MY_DISP_VER_RES;
+    //disp_drv.full_refresh = 1;
 
     lv_disp_t *disp;
     disp = lv_disp_drv_register(&disp_drv);
