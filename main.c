@@ -73,8 +73,6 @@ static void hal_init(void)
     }
 }
 
-
-
 int main(int argc, char **argv)
 {
     app_init();
@@ -87,7 +85,10 @@ int main(int argc, char **argv)
 
     /* App here */
     printf("Launching App ...\n");
-    lv_demo_widgets();
+    // lv_demo_widgets();
+    // lv_demo_benchmark();
+    lv_demo_stress();
+    // lv_demo_music();
 
     for(;;) {
         lv_timer_handler();

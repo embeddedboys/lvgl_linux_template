@@ -35,6 +35,7 @@ extern "C" {
  **********************/
 /* Initialize low level display driver */
 void lv_port_tick_init(void);
+uint32_t custom_tick_get(void);
 
 /**********************
  *      MACROS
