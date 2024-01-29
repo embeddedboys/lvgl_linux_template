@@ -27,17 +27,18 @@ static void intr_sig_handler(int signal)
 
 static void app_init(void)
 {
+#if CROSS_COMPILE
     system("echo 0 > /sys/class/graphics/fbcon/cursor_blink");
-
+#endif
     signal(SIGINT, intr_sig_handler);
 }
 
 static void app_exit(void)
 {
     printf("app exiting ...");
-
+#if CROSS_COMPILE
     system("echo 1 > /sys/class/graphics/fbcon/cursor_blink");
-
+#endif
     printf(" done\n");
     exit(EXIT_SUCCESS);
 }
@@ -55,22 +56,6 @@ static void hal_init(void)
         g = lv_group_create();
         lv_group_set_default(g);
     }
-
-    lv_indev_t *cur_drv = NULL;
-    for (;;) {
-        cur_drv = lv_indev_get_next(cur_drv);
-        if (!cur_drv) {
-            break;
-        }
-
-        if (cur_drv->driver->type == LV_INDEV_TYPE_KEYPAD) {
-            lv_indev_set_group(cur_drv, g);
-        }
-
-        if (cur_drv->driver->type == LV_INDEV_TYPE_ENCODER) {
-            lv_indev_set_group(cur_drv, g);
-        }
-    }
 }
 
 int main(int argc, char **argv)
@@ -85,10 +70,18 @@ int main(int argc, char **argv)
 
     /* App here */
     printf("Launching App ...\n");
+    // lv_demos_create(NULL, 0);
     // lv_demo_widgets();
     // lv_demo_benchmark();
     lv_demo_stress();
     // lv_demo_music();
+    // lv_demo_flex_layout();
+    // lv_demo_multilang();
+    // lv_demo_transform();
+    // lv_demo_scroll();
+    // lv_demo_vector_graphic();
+
+    // lv_example_file_explorer_1();
 
     for(;;) {
         lv_timer_handler();
