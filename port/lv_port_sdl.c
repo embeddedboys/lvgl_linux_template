@@ -30,7 +30,7 @@
  **********************/
 static void disp_init(void);
 
-static void disp_flush(lv_display_t * disp, const lv_area_t * area, uint8_t * px_map);
+static void disp_flush(lv_disp_t * disp, const lv_area_t * area, uint8_t * px_map);
 //static void gpu_fill(lv_disp_drv_t * disp_drv, lv_color_t * dest_buf, lv_coord_t dest_width,
 //        const lv_area_t * fill_area, lv_color_t color);
 
@@ -89,7 +89,7 @@ void disp_disable_update(void)
  *`px_map` contains the rendered image as raw pixel map and it should be copied to `area` on the display.
  *You can use DMA or any hardware acceleration to do this operation in the background but
  *'lv_display_flush_ready()' has to be called when it's finished.*/
-static void disp_flush(lv_display_t * disp_drv, const lv_area_t * area, uint8_t * px_map)
+static void disp_flush(lv_disp_t * disp_drv, const lv_area_t * area, uint8_t * px_map)
 {
     if (disp_flush_enabled) {
         /*The most simple case (but also the slowest) to put all pixels to the screen one-by-one*/
