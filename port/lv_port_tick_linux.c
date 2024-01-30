@@ -8,7 +8,7 @@
 
 #include "lv_port_tick.h"
 
-#if 0
+#if 1
 static pthread_t tid;
 static pthread_mutex_t g_lvgl_tick_mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -30,8 +30,7 @@ void lv_port_tick_init()
     printf("Creating sys_tick ...\n");
     pthread_create(&tid, NULL, tick_thread, NULL);
 }
-#endif
-
+#else
 void lv_port_tick_init()
 {
     /* do nothing, keep compatible */
@@ -54,3 +53,4 @@ uint32_t custom_tick_get(void)
     uint32_t time_ms = now_ms - start_ms;
     return time_ms;
 }
+#endif

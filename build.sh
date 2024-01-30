@@ -21,7 +21,7 @@ function do_compile_commands() {
 function do_build_target() {
     mkdir -p "${DIR_DIST_TARGET}" && cd "${DIR_DIST_TARGET}"
 
-    cmake -DCROSS_COMPILE=1 -G Ninja  .. && ninja
+    cmake -DCROSS_COMPILE=1 -G Ninja  .. && ninja -j12
 
     cd ${WORKDIR}
 

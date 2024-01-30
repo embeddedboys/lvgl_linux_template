@@ -48,7 +48,7 @@ static void hal_init(void)
     lv_init();
 
     lv_port_disp_init();
-    lv_port_indev_init();
+    // lv_port_indev_init();
     lv_port_tick_init();
 
     g = lv_group_get_default();
@@ -73,8 +73,8 @@ int main(int argc, char **argv)
     // lv_demos_create(NULL, 0);
     // lv_demo_widgets();
     // lv_demo_benchmark();
-    lv_demo_stress();
-    // lv_demo_music();
+    // lv_demo_stress();
+    lv_demo_music();
     // lv_demo_flex_layout();
     // lv_demo_multilang();
     // lv_demo_transform();
