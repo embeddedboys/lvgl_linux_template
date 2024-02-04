@@ -176,6 +176,7 @@ void lv_port_indev_init(void)
     (void)mousewheel_indev;
 }
 
+#if 0
 /**
  * A task to measure the elapsed time for LVGL
  * @param data unused
@@ -198,6 +199,8 @@ void lv_port_tick_init()
     printf("SDL creating sys_tick ...\n");
     SDL_CreateThread(tick_thread, "tick", NULL);
 }
+#endif
+
 #else /*Enable this file at the top*/
 
 /*This dummy typedef exists purely to silence -Wpedantic.*/
