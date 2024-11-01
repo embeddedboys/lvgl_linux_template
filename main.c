@@ -27,8 +27,9 @@ static void intr_sig_handler(int signal)
 
 static void app_init(void)
 {
+#ifdef CROSS_COMPILE
     system("echo 0 > /sys/class/graphics/fbcon/cursor_blink");
-
+#endif
     signal(SIGINT, intr_sig_handler);
 }
 
@@ -36,8 +37,9 @@ static void app_exit(void)
 {
     printf("app exiting ...");
 
+#ifdef CROSS_COMPILE
     system("echo 1 > /sys/class/graphics/fbcon/cursor_blink");
-
+#endif
     printf(" done\n");
     exit(EXIT_SUCCESS);
 }
@@ -85,9 +87,9 @@ int main(int argc, char **argv)
 
     /* App here */
     printf("Launching App ...\n");
-    // lv_demo_widgets();
+    lv_demo_widgets();
     // lv_demo_benchmark();
-    lv_demo_stress();
+    // lv_demo_stress();
     // lv_demo_music();
 
     for(;;) {
